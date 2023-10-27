@@ -1,0 +1,37 @@
+﻿@model AspNetCoreIdentityExamples.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+<h4>Giriş Yap</h4>
+<hr />
+<div class="col-5">
+    <form asp-action="Login" class="needs-validation" novalidate method="post">
+        <div asp-validation-summary="All" class="text-danger">
+            @if (ViewBag.DoesNeedForConfirmation != null && ViewBag.DoesNeedForConfirmation == true)
+            {
+                <a class="btn btn-link" asp-controller="Account" asp-action="ResendConfirmationLink" asp-route-email="@Model.Email">Yenidən göndər</a>
+            }
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="control-label"></label>
+            <input asp-for="Password" class="form-control" type="password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check">
+            <input asp-for="Persistent" class="form-check-input" />
+            <label asp-for="Persistent" class="form-check-label">Remember me</label>
+            <span asp-validation-for="Persistent" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+        <div class="form-group">
+            <a asp-action="ForgotPassword">Forgot Password</a>
+        </div>
+    </form>
+
+</div>
+

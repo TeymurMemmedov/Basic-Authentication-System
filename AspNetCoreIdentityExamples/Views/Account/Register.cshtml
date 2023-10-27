@@ -1,0 +1,38 @@
+﻿@model AspNetCoreIdentityExamples.ViewModels.AppUserViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+            <h3>Register</h3>
+            <hr />
+            <form asp-action="Register" autocomplete="off">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="form-group">
+                    <label asp-for="UserName"></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NotHashedPassword"></label>
+                    <input asp-for="NotHashedPassword" type="password" class="form-control" />
+                    <span asp-validation-for="NotHashedPassword" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ReNotHashedPassword"></label>
+                    <input asp-for="ReNotHashedPassword" type="password" class="form-control" />
+                    <span asp-validation-for="ReNotHashedPassword" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+</div>

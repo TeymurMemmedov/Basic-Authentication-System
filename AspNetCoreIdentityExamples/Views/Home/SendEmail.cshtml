@@ -1,0 +1,11 @@
+﻿@model AspNetCoreIdentityExamples.ViewModels.AttachmentViewModel;
+
+<form asp-action="SendEmail" asp-controller="Home" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Attachments"></label>
+        <input asp-for="Attachments" type="file" multiple />
+        <span asp-validation-for="Attachments" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Email</button>
+</form>
+
